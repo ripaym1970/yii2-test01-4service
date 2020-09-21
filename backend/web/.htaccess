@@ -1,0 +1,14 @@
+# use mod_rewrite for pretty URL support
+RewriteEngine on
+
+# Для обработки картинок и их кэша
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^icache icache.php?uri=%{REQUEST_URI} [L]
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+#RewriteRule . /backend/web/index.php
